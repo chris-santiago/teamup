@@ -110,27 +110,28 @@ def get_events(start=None, end=None):
     return [Event(e) for e in resp.json()['events']]
 
 
-def find_events(query, start=None, end=None, subcal_id=None):
+def find_events(query=None, start=None, end=None, subcal_id=None):
+    endpoint = f'{BASE_URL}/events?query={query}'
     if not subcal_id:
         if not start and not end:
             resp = requests.get(
-                url=f'{BASE_URL}/events?query={query}',
+                url=endpoint,
                 headers=HEADERS
             )
         else:
             resp = requests.get(
-                url=f'{BASE_URL}/events?query={query}&startDate={start}&endDate={end}',
+                url=f'{endpoint}&startDate={start}&endDate={end}',
                 headers=HEADERS
             )
     else:
         if not start and not end:
             resp = requests.get(
-                url=f'{BASE_URL}/events?query={query}&subcalendarId[]={subcal_id}',
+                url=f'{endpoint}&subcalendarId[]={subcal_id}',
                 headers=HEADERS
             )
         else:
             resp = requests.get(
-                url=f'{BASE_URL}/events?query={query}&startDate={start}&endDate={end}&subcalendarId[]={subcal_id}',
+                url=f'{endpoint}&startDate={start}&endDate={end}&subcalendarId[]={subcal_id}',
                 headers=HEADERS
             )
     return [Event(e) for e in resp.json()['events']]
