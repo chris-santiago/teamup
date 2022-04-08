@@ -1,5 +1,6 @@
 from teamup.api import check_access
-from teamup.constants import LOCATIONS, PARKS, COACHES
+from teamup.constants import LOCATIONS, PARKS
+from teamup.coaches import COACHES
 from teamup.fields import get_fields, get_field_id, get_field_info
 from teamup.events import get_events, get_event, find_events, Event
 from teamup.subcals import get_subcals, get_team_names, Subcalendars

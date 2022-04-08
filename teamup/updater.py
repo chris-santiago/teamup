@@ -1,15 +1,18 @@
 import asyncio
+import re
 
 import aiohttp
 
 from teamup.fields import get_field_info
-from teamup.misc import extract_field_num
+from teamup.misc import extract_field_num, get_coach_details
+from teamup.coaches import COACHES
 
 
 class Updater:
-    def __init__(self, events, fields):
+    def __init__(self, events, fields, cals):
         self.events = events
         self.fields = fields
+        self.cals = cals
 
     def update_parks(self):
         for e in self.events:
@@ -18,6 +21,19 @@ class Updater:
             e.set_park(park.name)
             e.set_field(field_num)
             e.set_loc(park.location)
+
+    def update_coach_details(self):
+        for e in self.events:
+            teams = [c for c in e.get_calendars() if 'Teams' in self.cals.get_subcal_name(c)]
+            details = []
+            for ID in teams:
+                cal_name = self.cals.get_subcal_name(ID)
+                team_name = re.findall(r"(?=(" + '|'.join(list(COACHES.keys())) + r"))", cal_name)
+                try:
+                    details.append(get_coach_details(team_name[0]))
+                except IndexError:
+                    print(f'No details for subcal: {cal_name}')
+            e.set_attr('notes', '\n'.join(details))
 
     def run(self):
         async def async_put(session, update):

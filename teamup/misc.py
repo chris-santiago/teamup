@@ -2,6 +2,7 @@ import re
 
 from teamup.fields import get_fields, get_field_info
 from teamup.events import find_events
+from teamup.coaches import COACHES
 
 
 def get_team_schedule(team, subcals, start, end):
@@ -18,3 +19,7 @@ def extract_field_num(park):
     if match:
         return match.group()
     return ''
+
+
+def get_coach_details(team):
+    return '\n'.join([team] + [f'{k}: {v}' for k, v in COACHES[team].items()])

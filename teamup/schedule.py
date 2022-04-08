@@ -1,6 +1,6 @@
 import pandas as pd
 
-from teamup.constants import COACHES
+from teamup.coaches import COACHES
 
 
 class DivisionSchedule:

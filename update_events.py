@@ -11,4 +11,5 @@ fields = teamup.get_fields(cals)
 if __name__ == '__main__':
     updater = teamup.Updater(events, fields)
     updater.update_parks()
+    # updater.update_coach_details()  # todo leaving this out as we may not want contact info on share calendar app
     updater.run()
