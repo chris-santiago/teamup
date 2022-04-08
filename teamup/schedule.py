@@ -1,5 +1,7 @@
 import pandas as pd
 
+from teamup.constants import COACHES
+
 
 class DivisionSchedule:
     div_map = {
@@ -45,7 +47,7 @@ class DivisionSchedule:
         return schedule
 
     def to_csv(self, filename):
-        self.to_pandas().to_csv(filename, index=False)
+        add_coach_info(self.to_pandas(), COACHES).to_csv(filename, index=False)
 
 
 def split_visitor_home(title):
@@ -53,3 +55,13 @@ def split_visitor_home(title):
     away = teams[0].strip()
     home = teams[1].strip()
     return away, home
+
+
+def add_coach_info(df, coaches):
+    for team in ['Visitor', 'Home']:
+        df[f'{team} Coach Info'] = [coaches.get(x, {}) for x in df[team]]
+        df[f'{team} Coach Name'] = df[f'{team} Coach Info'].apply(lambda x: x.get('Head Coach'))
+        df[f'{team} Coach Phone'] = df[f'{team} Coach Info'].apply(lambda x: x.get('Phone'))
+        df[f'{team} Coach Email'] = df[f'{team} Coach Info'].apply(lambda x: x.get('Email'))
+        df.drop(f'{team} Coach Info', axis=1, inplace=True)
+    return df
