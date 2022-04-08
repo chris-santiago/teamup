@@ -1,7 +1,3 @@
-import asyncio
-
-import aiohttp
-
 import teamup
 
 START = '2022-03-01'
@@ -21,4 +17,5 @@ fields = teamup.get_fields(cals)
 
 if __name__ == '__main__':
     updater = teamup.Updater(events, fields)
+    updater.update_parks()
     updater.run()

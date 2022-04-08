@@ -9,77 +9,6 @@ from teamup.constants import BASE_URL, HEADERS, KEY, CAL_PASS
 Update = namedtuple('Update', ('url', 'headers', 'data'))
 
 
-def get_events(start=None, end=None):
-    if not start and not end:
-        resp = requests.get(
-            url=f'{BASE_URL}/events',
-            headers=HEADERS
-        )
-    else:
-        resp = requests.get(
-            url=f'{BASE_URL}/events?startDate={start}&endDate={end}',
-            headers=HEADERS
-        )
-    return [Event(e) for e in resp.json()['events']]
-
-
-def find_events(query, start=None, end=None, subcal_id=None):
-    if not subcal_id:
-        if not start and not end:
-            resp = requests.get(
-                url=f'{BASE_URL}/events?query={query}',
-                headers=HEADERS
-            )
-        else:
-            resp = requests.get(
-                url=f'{BASE_URL}/events?query={query}&startDate={start}&endDate={end}',
-                headers=HEADERS
-            )
-    else:
-        if not start and not end:
-            resp = requests.get(
-                url=f'{BASE_URL}/events?query={query}&subcalendarId[]={subcal_id}',
-                headers=HEADERS
-            )
-        else:
-            resp = requests.get(
-                url=f'{BASE_URL}/events?query={query}&startDate={start}&endDate={end}&subcalendarId[]={subcal_id}',
-                headers=HEADERS
-            )
-    return [Event(e) for e in resp.json()['events']]
-
-
-# def create_update(event_id, data):
-#     headers = {
-#         'Teamup-Token': KEY,
-#         'Content-type': 'application/json',
-#         'Teamup-Password': CAL_PASS
-#     }
-#     return Update(
-#         url=f'{BASE_URL}/events/{event_id}',
-#         headers=headers,
-#         data=data
-#     )
-
-
-# def update_event(event_id, data):
-#     update = create_update(event_id, data)
-#     resp = requests.put(
-#         url=update.url,
-#         headers=update.headers,
-#         json=update.data
-#     )
-#     print(resp.status_code)
-
-
-def get_event(event_id):
-    resp = requests.get(
-        url=f'{BASE_URL}/events/{event_id}',
-        headers=HEADERS
-    )
-    return resp.json()
-
-
 class Event:
     def __init__(self, event):
         self._original = copy.deepcopy(event)
@@ -87,6 +16,11 @@ class Event:
         self.id = self.info['id']
         self.subcal_id = self.info['subcalendar_id']
         self.title = self.info['title']
+        self.date = self.info['start_dt'][:10]
+        self.park = self.info['custom'].get('park')
+
+    def __repr__(self):
+        return f"Event(title='{self.title}', date='{self.date}', id={self.id}, subcal_id={self.subcal_id}')"
 
     @property
     def tz(self):
@@ -160,3 +94,51 @@ class Event:
             'Teamup-Password': CAL_PASS
         }
         return Update(url=f'{BASE_URL}/events/{self.id}', headers=headers, data=self.info)
+
+
+def get_events(start=None, end=None):
+    if not start and not end:
+        resp = requests.get(
+            url=f'{BASE_URL}/events',
+            headers=HEADERS
+        )
+    else:
+        resp = requests.get(
+            url=f'{BASE_URL}/events?startDate={start}&endDate={end}',
+            headers=HEADERS
+        )
+    return [Event(e) for e in resp.json()['events']]
+
+
+def find_events(query, start=None, end=None, subcal_id=None):
+    if not subcal_id:
+        if not start and not end:
+            resp = requests.get(
+                url=f'{BASE_URL}/events?query={query}',
+                headers=HEADERS
+            )
+        else:
+            resp = requests.get(
+                url=f'{BASE_URL}/events?query={query}&startDate={start}&endDate={end}',
+                headers=HEADERS
+            )
+    else:
+        if not start and not end:
+            resp = requests.get(
+                url=f'{BASE_URL}/events?query={query}&subcalendarId[]={subcal_id}',
+                headers=HEADERS
+            )
+        else:
+            resp = requests.get(
+                url=f'{BASE_URL}/events?query={query}&startDate={start}&endDate={end}&subcalendarId[]={subcal_id}',
+                headers=HEADERS
+            )
+    return [Event(e) for e in resp.json()['events']]
+
+
+def get_event(event_id):
+    resp = requests.get(
+        url=f'{BASE_URL}/events/{event_id}',
+        headers=HEADERS
+    )
+    return resp.json()
