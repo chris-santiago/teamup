@@ -27,7 +27,7 @@ LOCATIONS = {
     'Away > Denton': 'Lions Park, Denton, MD 21629',
     'Away > Galena': '13753 Augustine Herman Hwy, Galena, MD 21635',
     'Away > Millington': '10601 Galena Rd. Millington, MD 21651',
-    'Away > North Caroline': 'Lions Park, Denton, MD 21629',
+    'Away > North Caroline': 'Greensboro Lions Park, Greensboro, MD 21639',
     'Away > Worton': '10932 Worton Road, Worton, MD 21678',
     'CES': '213 Homewood Ave, Centreville, MD 21617',
     'Church Hill > CH-1': '1130 Sudlersville Rd, Church Hill, MD 21623',
@@ -46,10 +46,10 @@ LOCATIONS = {
 
 PARKS = {
     'Away > Chestertown': 'Worton Park',
-    'Away > Denton': 'Lions Park',
+    'Away > Denton': 'Denton Lions Park',
     'Away > Galena': 'Toal Park',
     'Away > Millington': 'Lions Field',
-    'Away > North Caroline': 'Lions Park',
+    'Away > North Caroline': 'Greensboro Lions Club Park',
     'Away > Worton': 'Worton Park',
     'CES': 'Centreville Elementary School',
     'Church Hill > CH-1': 'Church Hill Park',
