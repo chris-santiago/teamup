@@ -143,3 +143,11 @@ def get_event(event_id):
         headers=HEADERS
     )
     return resp.json()
+
+
+def get_event_history(event_id):
+    resp = requests.get(
+        url=f'{BASE_URL}/events/{event_id}/history',
+        headers=HEADERS
+    )
+    return resp.json()

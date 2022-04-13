@@ -146,3 +146,4 @@ cython_debug/
 # User
 codecov
 teamup/coaches.py
+backups/
