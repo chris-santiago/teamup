@@ -16,6 +16,8 @@ class Updater:
 
     def update_parks(self):
         for e in self.events:
+            if e.subcal_id in [10719330, 10703990]:  # Don't change Denton/Caroline park info  # todo temporary
+                continue
             park = get_field_info(e, self.fields)
             field_num = extract_field_num(park)
             e.set_park(park.name)
