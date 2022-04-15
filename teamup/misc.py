@@ -14,11 +14,21 @@ def get_team_schedule(team, subcals, start, end):
     ]
 
 
+def worton_handler(park):
+    if '-B/C/D' in park.calendar:
+        return 'See diamond board front of park, day of.'
+    if '-AA' in park.calendar:
+        return 'AA'
+    return ''
+
+
 def extract_field_num(park):
+    if 'Worton' in park.calendar:
+        return worton_handler(park)
     match = re.search('\d', park.calendar)
     if match:
         return match.group()
-    return ''
+    return '1'  # default for single-field parks
 
 
 def get_coach_details(team):

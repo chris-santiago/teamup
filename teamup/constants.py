@@ -23,12 +23,16 @@ HEADERS = {
 }
 
 LOCATIONS = {
-    'Away > Chestertown': '10932 Worton Road, Worton, MD 21678',
-    # 'Away > Denton': 'Lions Park, Denton, MD 21629',  # todo commented out as they have multiple fields
-    'Away > Galena': '13753 Augustine Herman Hwy, Galena, MD 21635',
-    'Away > Millington': '10601 Galena Rd. Millington, MD 21651',
-    # 'Away > North Caroline': 'Greensboro Lions Park, Greensboro, MD 21639',  # todo commented out as they have multiple fields
-    'Away > Worton': '10932 Worton Road, Worton, MD 21678',
+    'Away > Caroline > Denton Lions Club-1': 'Lions Park, Denton, MD 21629',
+    'Away > Caroline > Greensboro Lions Club-2': 'Greensboro Lions Park, Greensboro, MD 21639',
+    'Away > Caroline > Martin Sutton Park-1': '302 W. 4th Street, Ridgely, MD 21660',
+    'Away > Kent > Worton-AA': '10932 Worton Road, Worton, MD 21678',
+    'Away > Kent > Worton-B/C/D': '10932 Worton Road, Worton, MD 21678',
+    'Away > Kent > Toal Park': '13753 Augustine Herman Hwy, Galena, MD 21635',
+    'Away > Kent > Millington': '10601 Galena Rd. Millington, MD 21651',
+    # 'Away > Galena': '13753 Augustine Herman Hwy, Galena, MD 21635',
+    # 'Away > Millington': '10601 Galena Rd. Millington, MD 21651',
+    # 'Away > Worton': '10932 Worton Road, Worton, MD 21678',
     'CES': '213 Homewood Ave, Centreville, MD 21617',
     'Church Hill > CH-1': '1130 Sudlersville Rd, Church Hill, MD 21623',
     'Church Hill > CH-2': '1130 Sudlersville Rd, Church Hill, MD 21623',
@@ -45,12 +49,17 @@ LOCATIONS = {
 }
 
 PARKS = {
-    'Away > Chestertown': 'Worton Park',
-    # 'Away > Denton': 'Denton Lions Park',  # todo commented out as they have multiple fields
-    'Away > Galena': 'Toal Park',
-    'Away > Millington': 'Lions Field',
-    # 'Away > North Caroline': 'Greensboro Lions Club Park',  # todo commented out as they have multiple fields
-    'Away > Worton': 'Worton Park',
+    'Away > Caroline > Denton Lions Club-1': 'Denton Lions Park',
+    'Away > Caroline > Greensboro Lions Club-2': 'Greensboro Lions Park',
+    'Away > Caroline > Martin Sutton Park-1': 'Martin Sutton Park',
+    'Away > Kent > Worton-AA': 'Worton Park',
+    'Away > Kent > Worton-B/C/D': 'Worton Park',
+    'Away > Kent > Toal Park': 'Toal Park',
+    'Away > Kent > Millington': 'Lions Field',
+    # 'Away > Chestertown': 'Worton Park',
+    # 'Away > Galena': 'Toal Park',
+    # 'Away > Millington': 'Lions Field',
+    # 'Away > Worton': 'Worton Park',
     'CES': 'Centreville Elementary School',
     'Church Hill > CH-1': 'Church Hill Park',
     'Church Hill > CH-2': 'Church Hill Park',
@@ -59,7 +68,7 @@ PARKS = {
     'CMS > CMS-3': 'Centreville Middle School',
     'CMS > CMS-4': 'Centreville Middle School',
     'Roosevelt Park > RP-1': 'Roosevelt Park',
-    'Route 18 > RT18-4': 'Route 19 Park',
+    'Route 18 > RT18-4': 'Route 18 Park',
     'White Marsh > WM-1': 'White Marsh Park',
     'White Marsh > WM-2': 'White Marsh Park',
     'White Marsh > WM-3': 'White Marsh Park',
