@@ -6,4 +6,4 @@ from teamup.events import get_events, get_event, find_events, Event, get_event_h
 from teamup.subcals import get_subcals, get_team_names, Subcalendars
 from teamup.misc import get_team_schedule, extract_field_num
 from teamup.updater import Updater
-from teamup.schedule import DivisionSchedule
+from teamup.schedule import DivisionSchedule, add_coach_info

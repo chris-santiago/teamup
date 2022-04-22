@@ -5,6 +5,8 @@ from teamup.coaches import COACHES
 
 class DivisionSchedule:
     div_map = {
+        'teeball': 'TB',
+        'coach pitch': 'CP',
         'majors': 'MJ',
         'minors': 'MN',
         'seniors': 'Seniors',
