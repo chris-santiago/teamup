@@ -7,6 +7,8 @@ class DivisionSchedule:
     div_map = {
         'majors': 'MJ',
         'minors': 'MN',
+        'seniors': 'Seniors',
+        'juniors': 'Juniors'
     }
 
     def __init__(self, division, events, calendars, start, end):
