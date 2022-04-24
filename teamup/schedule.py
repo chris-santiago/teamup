@@ -10,7 +10,9 @@ class DivisionSchedule:
         'majors': 'MJ',
         'minors': 'MN',
         'seniors': 'Seniors',
-        'juniors': 'Juniors'
+        'juniors': 'Juniors',
+        '11u': '11U',
+        '12u': '12U',
     }
 
     def __init__(self, division, events, calendars, start, end):
