@@ -4,7 +4,7 @@ import teamup
 
 START = '2022-03-01'
 END = '2022-07-31'
-DIVISIONS = ['teeball', 'coach pitch', 'minors', 'majors', 'juniors', '11u', '12u']
+DIVISIONS = ['teeball', 'coach pitch', 'minors', 'majors', 'juniors', 'seniors', '11u', '12u']
 
 cals = teamup.get_subcals()
 events = teamup.get_events(START, END)

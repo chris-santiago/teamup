@@ -25,9 +25,9 @@ def worton_handler(park):
 def extract_field_num(park):
     if 'Worton' in park.calendar:
         return worton_handler(park)
-    match = re.search('\d', park.calendar)
+    match = re.search(r'-(\d)', park.calendar)  # handle park names w/numbers (eg Rt18)
     if match:
-        return match.group()
+        return match.group(1)
     return '1'  # default for single-field parks
 
 
