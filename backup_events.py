@@ -5,8 +5,8 @@ import teamup
 
 
 FILE = f'backups/cal-backup-{datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.p'
-START = '2022-03-01'
-END = '2022-07-31'
+START = '2023-03-01'
+END = '2023-07-31'
 
 
 def backup():

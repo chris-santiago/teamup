@@ -1,7 +1,7 @@
 import teamup
 
-START = '2022-03-01'
-END = '2022-07-31'
+START = '2023-03-01'
+END = '2023-07-31'
 
 cals = teamup.get_subcals()
 events = teamup.get_events(START, END)

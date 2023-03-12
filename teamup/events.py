@@ -13,6 +13,7 @@ class Event:
     def __init__(self, event):
         self._original = copy.deepcopy(event)
         self.info = event
+        self.add_custom_if_missing()
         self.id = self.info['id']
         self.subcal_id = self.info['subcalendar_id']
         self.title = self.info['title']
@@ -21,6 +22,10 @@ class Event:
 
     def __repr__(self):
         return f"Event(title='{self.title}', date='{self.date}', id={self.id}, subcal_id={self.subcal_id}')"
+
+    def add_custom_if_missing(self):
+        if self.info.get('custom') is None:
+            self.info['custom'] = {}
 
     @property
     def tz(self):

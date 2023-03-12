@@ -1,0 +1,20 @@
+name: teamup
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - bzip2=1.0.8
+  - ca-certificates=2022.12.7
+  - libffi=3.4.2
+  - libsqlite=3.40.0
+  - libzlib=1.2.13
+  - ncurses=6.3
+  - openssl=3.0.8
+  - pip=23.0.1
+  - python=3.8.16
+  - readline=8.1.2
+  - setuptools=67.6.0
+  - tk=8.6.12
+  - wheel=0.38.4
+  - xz=5.2.6
+prefix: /Users/christophersantiago/miniforge3/envs/teamup
